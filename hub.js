@@ -5,7 +5,7 @@ const meta = document.querySelector("#catalog-meta");
 function card(item) {
   const link = document.createElement("a");
   link.className = "card";
-  link.href = `/p/${encodeURIComponent(item.slug)}`;
+  link.href = `/prototypes/${encodeURIComponent(item.slug)}`;
   link.innerHTML = `
     <h3></h3>
     <p></p>

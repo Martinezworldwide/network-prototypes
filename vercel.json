@@ -2,7 +2,8 @@
   "cleanUrls": true,
   "outputDirectory": ".",
   "rewrites": [
-    { "source": "/p/:slug", "destination": "/prototypes/:slug/index.html" },
+    { "source": "/p/:slug", "destination": "/prototypes/:slug" },
+    { "source": "/p/:slug/", "destination": "/prototypes/:slug" },
     { "source": "/catalog.json", "destination": "/prototypes/catalog.json" }
   ],
   "headers": [
