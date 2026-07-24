@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Self-Hosted QA &amp; Security Dashboard | Network Prototypes</title>
+  <meta name="description" content="Open-source dashboard combining self-hosted QA tooling with automated security scanning for teams wanting full data control">
+  <link rel="stylesheet" href="/prototypes/self-hosted-qa-security-dashboard-unknown-recrui-cd05e7/styles.css">
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="back" href="/">Network Prototypes</a>
+    <p class="eyebrow">Unknown (recruitment agency client) · Unknown (client role)</p>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Competitive prototype</p>
+      <h1>Self-Hosted QA &amp; Security Dashboard</h1>
+      <p class="lead">Open-source dashboard combining self-hosted QA tooling with automated security scanning for teams wanting full data control</p>
+      <p class="value">Matching candidates with relevant Full Stack and Cybersecurity experience to client roles</p>
+    </section>
+    <section class="grid">
+      <article>
+        <h2>Core features</h2>
+        <ul><li>Aggregates self-hosted QA tools (test runners, CI/CD, reporting) via awesome-selfhosted</li><li>Integrates Go-based security scanners from awesome-go for SAST/DAST/dependency checks</li><li>Exposes MCP server endpoints for AI-driven test orchestration and vulnerability triage</li></ul>
+      </article>
+      <article>
+        <h2>Differentiators</h2>
+        <ul><li>Fully self-hosted, no SaaS data egress</li><li>Modular plugin architecture using MCP for extensibility</li><li>Unified QA + security view in single pane</li></ul>
+      </article>
+      <article>
+        <h2>MVP plan</h2>
+        <ol><li>Deploy awesome-selfhosted stack (Gitea, Drone, Grafana) on local k3s</li><li>Wire Go security scanners (gosec, nuclei, trivy) into CI pipelines</li><li>Implement MCP server wrapper for test triggering and result querying</li></ol>
+      </article>
+      <article>
+        <h2>Risks</h2>
+        <ul><li>Integration complexity across heterogeneous self-hosted tools</li><li>Maintenance burden of multiple upstream projects</li><li>Limited enterprise support vs commercial platforms</li></ul>
+      </article>
+    </section>
+    <section class="open-source">
+      <h2>Public technical footprint</h2>
+      <div class="repo-list">
+    <article class="repo">
+      <h3><a href="https://github.com/awesome-selfhosted/awesome-selfhosted" target="_blank" rel="noreferrer">awesome-selfhosted/awesome-selfhosted</a></h3>
+      <p>A list of Free Software network services and web applications which can be hosted on your own servers</p>
+      <p class="repo-meta">Open source</p>
+    </article>
+  
+    <article class="repo">
+      <h3><a href="https://github.com/avelino/awesome-go" target="_blank" rel="noreferrer">avelino/awesome-go</a></h3>
+      <p>A curated list of awesome Go frameworks, libraries and software</p>
+      <p class="repo-meta">Go</p>
+    </article>
+  
+    <article class="repo">
+      <h3><a href="https://github.com/punkpeye/awesome-mcp-servers" target="_blank" rel="noreferrer">punkpeye/awesome-mcp-servers</a></h3>
+      <p>A collection of MCP servers.</p>
+      <p class="repo-meta">Open source</p>
+    </article>
+  
+    <article class="repo">
+      <h3><a href="https://github.com/bytedance/deer-flow" target="_blank" rel="noreferrer">bytedance/deer-flow</a></h3>
+      <p>An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.</p>
+      <p class="repo-meta">Python</p>
+    </article>
+  
+    <article class="repo">
+      <h3><a href="https://github.com/redis/redis" target="_blank" rel="noreferrer">redis/redis</a></h3>
+      <p>For developers, who are building real-time data-driven applications, Redis is the preferred, fastest, and most feature-rich cache, data structure server, and document and vector query engine.</p>
+      <p class="repo-meta">C</p>
+    </article>
+  </div>
+    </section>
+    <section class="cta">
+      <h2>Collaborate asynchronously</h2>
+      <p>Share a short video, demo link, deck, or written summary. Meeting scheduling is optional.</p>
+      <button id="copy-brief" type="button">Copy partnership brief</button>
+      <p id="copy-status" class="muted" aria-live="polite"></p>
+    </section>
+  </main>
+  <script src="/prototypes/self-hosted-qa-security-dashboard-unknown-recrui-cd05e7/app.js" type="module"></script>
+</body>
+</html>
