@@ -1,0 +1,66 @@
+{
+  "slug": "self-hosted-qa-security-dashboard-unknown-recrui-cd05e7",
+  "conceptName": "Self-Hosted QA & Security Dashboard",
+  "positioning": "Open-source dashboard combining self-hosted QA tooling with automated security scanning for teams wanting full data control",
+  "coreFeatures": [
+    "Aggregates self-hosted QA tools (test runners, CI/CD, reporting) via awesome-selfhosted",
+    "Integrates Go-based security scanners from awesome-go for SAST/DAST/dependency checks",
+    "Exposes MCP server endpoints for AI-driven test orchestration and vulnerability triage"
+  ],
+  "differentiators": [
+    "Fully self-hosted, no SaaS data egress",
+    "Modular plugin architecture using MCP for extensibility",
+    "Unified QA + security view in single pane"
+  ],
+  "mvpBuildPlan": [
+    "Deploy awesome-selfhosted stack (Gitea, Drone, Grafana) on local k3s",
+    "Wire Go security scanners (gosec, nuclei, trivy) into CI pipelines",
+    "Implement MCP server wrapper for test triggering and result querying"
+  ],
+  "risks": [
+    "Integration complexity across heterogeneous self-hosted tools",
+    "Maintenance burden of multiple upstream projects",
+    "Limited enterprise support vs commercial platforms"
+  ],
+  "companyName": "Unknown (recruitment agency client)",
+  "productName": "Unknown (client role)",
+  "valueProposition": "Matching candidates with relevant Full Stack and Cybersecurity experience to client roles",
+  "publicRepositories": [
+    {
+      "name": "awesome-selfhosted",
+      "fullName": "awesome-selfhosted/awesome-selfhosted",
+      "url": "https://github.com/awesome-selfhosted/awesome-selfhosted",
+      "description": "A list of Free Software network services and web applications which can be hosted on your own servers",
+      "language": ""
+    },
+    {
+      "name": "awesome-go",
+      "fullName": "avelino/awesome-go",
+      "url": "https://github.com/avelino/awesome-go",
+      "description": "A curated list of awesome Go frameworks, libraries and software",
+      "language": "Go"
+    },
+    {
+      "name": "awesome-mcp-servers",
+      "fullName": "punkpeye/awesome-mcp-servers",
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "description": "A collection of MCP servers.",
+      "language": ""
+    },
+    {
+      "name": "deer-flow",
+      "fullName": "bytedance/deer-flow",
+      "url": "https://github.com/bytedance/deer-flow",
+      "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
+      "language": "Python"
+    },
+    {
+      "name": "redis",
+      "fullName": "redis/redis",
+      "url": "https://github.com/redis/redis",
+      "description": "For developers, who are building real-time data-driven applications, Redis is the preferred, fastest, and most feature-rich cache, data structure server, and document and vector query engine.",
+      "language": "C"
+    }
+  ],
+  "publishedAt": "2026-07-24T19:39:35.533Z"
+}
