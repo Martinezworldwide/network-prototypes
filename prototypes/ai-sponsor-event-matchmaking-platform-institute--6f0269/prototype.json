@@ -1,0 +1,68 @@
+{
+  "slug": "ai-sponsor-event-matchmaking-platform-institute--6f0269",
+  "conceptName": "AI Sponsor-Event Matchmaking Platform",
+  "positioning": "Automated marketplace that matches B2B AI vendors with curated executive events (summits, dinners, workshops) based on target-account fit, budget, and calendar, replacing manual outreach with data-driven inventory allocation.",
+  "coreFeatures": [
+    "Sponsor profile ingestion (ICP, budget, preferred conferences, speaking topics)",
+    "Real-time event inventory sync (panel slots, dinner caps, workshop hosts) from organizer feeds",
+    "Match scoring engine ranking events by attendee overlap with sponsor target accounts",
+    "Automated proposal generator producing customized sponsorship packages with pricing tiers"
+  ],
+  "differentiators": [
+    "Two-sided network: organizers publish inventory once; sponsors discover and book without email ping-pong",
+    "Account-level attendee intelligence (anonymized) to prove ROI before commit",
+    "Post-event attribution dashboard linking leads to specific sessions or dinners"
+  ],
+  "mvpBuildPlan": [
+    "Ingest public summit schedules and known sponsor lists (Lenovo, NVIDIA, Intel, Dell) into a searchable catalog",
+    "Build sponsor onboarding form capturing ICP, budget range, and conference calendar",
+    "Prototype match algorithm using keyword overlap between sponsor topics and panel titles",
+    "Generate one-page PDF proposal per match for pilot with 3-5 sponsors"
+  ],
+  "risks": [
+    "Organizers may withhold granular attendee data, limiting match quality",
+    "Sponsors accustomed to relationship-based sales may resist self-serve booking",
+    "Seasonal event calendar creates lumpy revenue and uneven platform utilization"
+  ],
+  "companyName": "Institute for AI Transformation",
+  "productName": "Leaders in AI Summit Series & Think Tank Dinners",
+  "valueProposition": "Direct access to curated senior AI, data, and technology executives from Fortune 500 enterprises (banks, healthcare, retail, energy) through high-touch speaking, sponsorship, and private dinner formats.",
+  "publicRepositories": [
+    {
+      "name": "public-apis",
+      "fullName": "public-apis/public-apis",
+      "url": "https://github.com/public-apis/public-apis",
+      "description": "A collective list of free APIs",
+      "language": "Python"
+    },
+    {
+      "name": "awesome-courses",
+      "fullName": "prakhar1989/awesome-courses",
+      "url": "https://github.com/prakhar1989/awesome-courses",
+      "description": ":books: List of awesome university courses for learning Computer Science!",
+      "language": ""
+    },
+    {
+      "name": "awesome-openclaw-skills",
+      "fullName": "VoltAgent/awesome-openclaw-skills",
+      "url": "https://github.com/VoltAgent/awesome-openclaw-skills",
+      "description": "The awesome collection of OpenClaw skills. 5,400+ skills filtered and categorized from the official OpenClaw Skills Registry.🦞",
+      "language": ""
+    },
+    {
+      "name": "awesome-datascience",
+      "fullName": "academic/awesome-datascience",
+      "url": "https://github.com/academic/awesome-datascience",
+      "description": ":memo: An awesome Data Science repository to learn and apply for real world problems.",
+      "language": ""
+    },
+    {
+      "name": "best-of-ml-python",
+      "fullName": "lukasmasuch/best-of-ml-python",
+      "url": "https://github.com/lukasmasuch/best-of-ml-python",
+      "description": "🏆 A ranked list of awesome machine learning Python libraries. Updated weekly.",
+      "language": ""
+    }
+  ],
+  "publishedAt": "2026-07-24T20:36:08.522Z"
+}
