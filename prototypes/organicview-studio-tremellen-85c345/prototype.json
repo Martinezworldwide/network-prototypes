@@ -1,0 +1,66 @@
+{
+  "slug": "organicview-studio-tremellen-85c345",
+  "conceptName": "OrganicView Studio",
+  "positioning": "A lightweight analytics and content-strategy toolkit that lets video production agencies prove and replicate organic growth outcomes for B2B clients without paid spend.",
+  "coreFeatures": [
+    "YouTube and social metrics ingestion that plots monthly view curves and highlights organic vs. paid contribution",
+    "Reusable content-strategy templates (hooks, shot lists, briefs) that prospects can fork and adapt per client",
+    "Video SEO audit script that scores existing client videos against top-performing formats and surfaces quick wins"
+  ],
+  "differentiators": [
+    "Outcome-first dashboard that visualizes 30x-style growth curves as a sales asset for agencies",
+    "Open, forkable strategy templates that shorten onboarding versus bespoke consulting",
+    "No-ad-spend framing that aligns with founders skeptical of paid acquisition"
+  ],
+  "mvpBuildPlan": [
+    "Build a minimal YouTube Data API ingestion script that stores monthly views per channel and renders a simple growth-curve chart",
+    "Package 3-5 content-strategy templates (hook bank, shot list, brief doc) into a public repo prospects can clone",
+    "Write a CLI video SEO audit that checks title, description, tags, and thumbnail against a heuristic rubric and outputs a score"
+  ],
+  "risks": [
+    "Public YouTube/social APIs have rate limits and ToS constraints that may limit scale",
+    "Forkable templates may be copied by competitors, eroding differentiation",
+    "Metrics-only proof may not generalize across industries beyond the showcased case study"
+  ],
+  "companyName": "Tremellen",
+  "productName": "Video production & content strategy",
+  "valueProposition": "Grow monthly views 30x (3.9K to 118K) in 8 months with zero ad spend through strategic video production and content strategy",
+  "publicRepositories": [
+    {
+      "name": "awesome",
+      "fullName": "sindresorhus/awesome",
+      "url": "https://github.com/sindresorhus/awesome",
+      "description": "😎 Awesome lists about all kinds of interesting topics",
+      "language": ""
+    },
+    {
+      "name": "coding-interview-university",
+      "fullName": "jwasham/coding-interview-university",
+      "url": "https://github.com/jwasham/coding-interview-university",
+      "description": "A complete computer science study plan to become a software engineer.",
+      "language": ""
+    },
+    {
+      "name": "awesome-selfhosted",
+      "fullName": "awesome-selfhosted/awesome-selfhosted",
+      "url": "https://github.com/awesome-selfhosted/awesome-selfhosted",
+      "description": "A list of Free Software network services and web applications which can be hosted on your own servers",
+      "language": ""
+    },
+    {
+      "name": "ECC",
+      "fullName": "affaan-m/ECC",
+      "url": "https://github.com/affaan-m/ECC",
+      "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+      "language": "JavaScript"
+    },
+    {
+      "name": "awesome-go",
+      "fullName": "avelino/awesome-go",
+      "url": "https://github.com/avelino/awesome-go",
+      "description": "A curated list of awesome Go frameworks, libraries and software",
+      "language": "Go"
+    }
+  ],
+  "publishedAt": "2026-07-24T19:51:17.226Z"
+}
