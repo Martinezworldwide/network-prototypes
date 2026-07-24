@@ -1,0 +1,66 @@
+{
+  "slug": "public-sector-infrastructure-modernization-playb-a725bb",
+  "conceptName": "Public Sector Infrastructure Modernization Playbook",
+  "positioning": "A practical, vendor-neutral guide and community for government technology leaders to plan and execute secure, scalable AI-ready infrastructure upgrades, complementing event-based forums like the Infrastructure & Modernization Forum.",
+  "coreFeatures": [
+    "Curated open-source tooling and reference architectures for gov AI workloads",
+    "Checklists and maturity models for infrastructure assessment and migration",
+    "Peer-contributed case studies and lessons learned from public sector modernization"
+  ],
+  "differentiators": [
+    "Vendor-agnostic, community-maintained content vs. sponsor-driven event agendas",
+    "Persistent, searchable knowledge base vs. one-time in-person event",
+    "Direct integration with GitHub workflows and CI/CD pipelines for immediate adoption"
+  ],
+  "mvpBuildPlan": [
+    "Launch a public GitHub repo 'awesome-gov-infrastructure-modernization' with categorized resources",
+    "Publish a markdown-based maturity model and migration checklist for AI-ready infrastructure",
+    "Recruit 5-10 public sector practitioners to contribute case studies and validate content"
+  ],
+  "risks": [
+    "Low initial contributor engagement without clear incentives or sponsorship",
+    "Difficulty maintaining vendor neutrality if cloud/platform vendors dominate contributions",
+    "Uncertain demand for a persistent resource vs. high-touch event networking"
+  ],
+  "companyName": "Not specified in conversation",
+  "productName": "Infrastructure & Modernization Forum (event, August 27, Reston, VA)",
+  "valueProposition": "Practical strategies and peer networking to help public sector organizations modernize infrastructure and prepare for AI adoption in secure, scalable ways.",
+  "publicRepositories": [
+    {
+      "name": "awesome",
+      "fullName": "sindresorhus/awesome",
+      "url": "https://github.com/sindresorhus/awesome",
+      "description": "😎 Awesome lists about all kinds of interesting topics",
+      "language": ""
+    },
+    {
+      "name": "system-design-primer",
+      "fullName": "donnemartin/system-design-primer",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "description": "Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.",
+      "language": "Python"
+    },
+    {
+      "name": "the-book-of-secret-knowledge",
+      "fullName": "trimstray/the-book-of-secret-knowledge",
+      "url": "https://github.com/trimstray/the-book-of-secret-knowledge",
+      "description": "A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.",
+      "language": ""
+    },
+    {
+      "name": "awesome-mcp-servers",
+      "fullName": "punkpeye/awesome-mcp-servers",
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "description": "A collection of MCP servers.",
+      "language": ""
+    },
+    {
+      "name": "NextChat",
+      "fullName": "ChatGPTNextWeb/NextChat",
+      "url": "https://github.com/ChatGPTNextWeb/NextChat",
+      "description": "✨ Light and Fast AI Assistant. Support: Web | iOS | MacOS | Android |  Linux | Windows",
+      "language": "TypeScript"
+    }
+  ],
+  "publishedAt": "2026-07-24T21:42:09.870Z"
+}
