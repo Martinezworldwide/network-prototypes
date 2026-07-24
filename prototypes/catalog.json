@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-07-24T19:51:17.226Z",
+  "updatedAt": "2026-07-24T19:52:59.256Z",
   "prototypes": [
+    {
+      "slug": "ai-agent-attack-surface-mapper-opsin-security-44f74b",
+      "conceptName": "AI Agent Attack Surface Mapper",
+      "positioning": "Continuous discovery and ownership mapping of autonomous AI agents and their MCP server connections, closing the visibility gap left by EDR/CSPM tools that focus on traditional workloads.",
+      "companyName": "Opsin Security",
+      "productName": "Opsin Security AI agent visibility platform",
+      "publishedAt": "2026-07-24T19:52:59.256Z"
+    },
     {
       "slug": "organicview-studio-tremellen-85c345",
       "conceptName": "OrganicView Studio",
