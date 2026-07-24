@@ -14,6 +14,8 @@ Repository: https://github.com/Martinezworldwide/network-prototypes
 8. Deploy
 9. Copy the production URL into the private Network Desk env as `PUBLIC_SITE_BASE_URL`
 
+Current production URL: `https://network-prototypes.vercel.app`
+
 ## Private Network Desk env (separate Vercel project)
 
 Keep these on the private dashboard project only:
