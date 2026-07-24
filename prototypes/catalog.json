@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-07-24T20:36:34.897Z",
+  "updatedAt": "2026-07-24T21:42:09.870Z",
   "prototypes": [
+    {
+      "slug": "public-sector-infrastructure-modernization-playb-a725bb",
+      "conceptName": "Public Sector Infrastructure Modernization Playbook",
+      "positioning": "A practical, vendor-neutral guide and community for government technology leaders to plan and execute secure, scalable AI-ready infrastructure upgrades, complementing event-based forums like the Infrastructure & Modernization Forum.",
+      "companyName": "Not specified in conversation",
+      "productName": "Infrastructure & Modernization Forum (event, August 27, Reston, VA)",
+      "publishedAt": "2026-07-24T21:42:09.870Z"
+    },
     {
       "slug": "ai-sponsor-event-matchmaking-platform-institute--6f0269",
       "conceptName": "AI Sponsor-Event Matchmaking Platform",
