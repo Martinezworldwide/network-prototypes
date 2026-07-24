@@ -11,7 +11,7 @@ Public partnership hub for competitive prototypes. Each prototype is published i
 ## Layout
 
 ```text
-public/                 Hub landing page
+index.html, hub.css, hub.js   Hub landing page
 prototypes/
   catalog.json          Published prototype index
   <slug>/               One deployable site per prototype
