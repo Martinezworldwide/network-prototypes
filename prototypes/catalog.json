@@ -1,4 +1,13 @@
 {
-  "updatedAt": null,
-  "prototypes": []
+  "updatedAt": "2026-07-24T19:39:35.533Z",
+  "prototypes": [
+    {
+      "slug": "self-hosted-qa-security-dashboard-unknown-recrui-cd05e7",
+      "conceptName": "Self-Hosted QA & Security Dashboard",
+      "positioning": "Open-source dashboard combining self-hosted QA tooling with automated security scanning for teams wanting full data control",
+      "companyName": "Unknown (recruitment agency client)",
+      "productName": "Unknown (client role)",
+      "publishedAt": "2026-07-24T19:39:35.533Z"
+    }
+  ]
 }
