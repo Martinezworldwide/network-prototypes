@@ -1,0 +1,18 @@
+name: Validate hub
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required files
+        run: |
+          test -f public/index.html
+          test -f public/hub.js
+          test -f public/hub.css
+          test -f prototypes/catalog.json
+          test -f vercel.json
+          node -e "JSON.parse(require('fs').readFileSync('prototypes/catalog.json','utf8'))"

@@ -1,0 +1,9 @@
+{
+  "name": "network-prototypes",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Public partnership prototype hub. Each competitive prototype lives in its own folder under prototypes/.",
+  "scripts": {
+    "build": "node -e \"console.log('Static hub; no build step.')\""
+  }
+}

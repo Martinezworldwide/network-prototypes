@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Network Prototypes</title>
+  <meta name="description" content="Public partnership hub for competitive prototypes.">
+  <link rel="stylesheet" href="/public/hub.css">
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <header class="site-header">
+    <p class="brand">Network Prototypes</p>
+    <p class="tagline">Partnership-ready competitive prototypes, one folder each.</p>
+  </header>
+  <main>
+    <section class="intro">
+      <h1>Collaborative prototype workspace</h1>
+      <p>Browse published builds, open a dedicated prototype page, and reply asynchronously with a short video, demo link, deck, or written summary.</p>
+    </section>
+    <section aria-labelledby="catalog-heading">
+      <div class="section-head">
+        <h2 id="catalog-heading">Published prototypes</h2>
+        <p id="catalog-meta" class="muted">Loading catalog…</p>
+      </div>
+      <div id="catalog-grid" class="catalog-grid" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>Each prototype lives under <code>prototypes/&lt;slug&gt;/</code> and is served at <code>/p/&lt;slug&gt;</code>.</p>
+  </footer>
+  <script src="/public/hub.js" type="module"></script>
+</body>
+</html>
