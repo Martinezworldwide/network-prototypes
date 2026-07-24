@@ -1,11 +1,12 @@
 // Load the published prototype catalog and render partnership cards.
+// Relative URLs keep the hub working on GitHub Pages and Vercel.
 const grid = document.querySelector("#catalog-grid");
 const meta = document.querySelector("#catalog-meta");
 
 function card(item) {
   const link = document.createElement("a");
   link.className = "card";
-  link.href = `/prototypes/${encodeURIComponent(item.slug)}`;
+  link.href = `./prototypes/${encodeURIComponent(item.slug)}/`;
   link.innerHTML = `
     <h3></h3>
     <p></p>
@@ -20,7 +21,7 @@ function card(item) {
 
 async function loadCatalog() {
   try {
-    const response = await fetch("/catalog.json", { cache: "no-store" });
+    const response = await fetch("./prototypes/catalog.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`Catalog unavailable (${response.status})`);
     const data = await response.json();
     const items = Array.isArray(data.prototypes) ? data.prototypes : [];

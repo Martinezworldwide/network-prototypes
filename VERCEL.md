@@ -1,22 +1,41 @@
-# Public Vercel Deploy
+# Public Deploy
 
 Repository: https://github.com/Martinezworldwide/network-prototypes
 
-## Import steps
+## Primary host: GitHub Pages (realtime)
+
+1. Open https://github.com/Martinezworldwide/network-prototypes/settings/pages
+2. Build and deployment → Source: **Deploy from a branch**
+3. Branch: `main` / folder: `/ (root)`
+4. Save
+5. Site URL: `https://martinezworldwide.github.io/network-prototypes/`
+6. Set Network Desk env `PUBLIC_SITE_BASE_URL` to that URL (no trailing slash)
+
+Prototype URLs:
+
+```text
+https://martinezworldwide.github.io/network-prototypes/prototypes/<slug>/
+```
+
+Pages updates from `main` as soon as GitHub finishes the Pages build (usually within a minute of each push).
+
+## Secondary host: Vercel (when quota allows)
+
+Keep the existing Vercel project imported from this repo. It can stay connected and will catch up when the free deploy quota resets.
+
+Current Vercel URL: `https://network-prototypes.vercel.app`
+
+Vercel import settings if recreating:
 
 1. Open https://vercel.com/new
 2. Import `Martinezworldwide/network-prototypes`
-3. Set Root Directory to repository root (leave blank / `.`)
+3. Root Directory: repository root
 4. Framework Preset: Other
-5. Build Command: leave empty or `npm run build`
-6. Output Directory: leave empty (static files at repo root)
-7. Do **not** add `GITHUB_DASHBOARD_TOKEN`, `DASHBOARD_PASSWORD`, or any private Network Desk secrets
-8. Deploy
-9. Copy the production URL into the private Network Desk env as `PUBLIC_SITE_BASE_URL`
+5. Build Command: empty or `npm run build`
+6. Output Directory: empty
+7. Do **not** add private Network Desk secrets
 
-Current production URL: `https://network-prototypes.vercel.app`
-
-## Private Network Desk env (separate Vercel project)
+## Private Network Desk env
 
 Keep these on the private dashboard project only:
 
@@ -27,4 +46,4 @@ Keep these on the private dashboard project only:
 - `PUBLIC_GITHUB_OWNER=Martinezworldwide`
 - `PUBLIC_GITHUB_REPO=network-prototypes`
 - `PUBLIC_GITHUB_BRANCH=main`
-- `PUBLIC_SITE_BASE_URL=https://<your-public-hub>.vercel.app`
+- `PUBLIC_SITE_BASE_URL=https://martinezworldwide.github.io/network-prototypes`

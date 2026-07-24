@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Network Prototypes</title>
   <meta name="description" content="Public partnership hub for competitive prototypes.">
-  <link rel="stylesheet" href="/hub.css">
+  <!-- Relative assets work on both GitHub Pages (/repo/) and Vercel (domain root). -->
+  <link rel="stylesheet" href="./hub.css">
 </head>
 <body>
   <div class="atmosphere" aria-hidden="true"></div>
@@ -27,8 +28,8 @@
     </section>
   </main>
   <footer class="site-footer">
-    <p>Each prototype lives under <code>prototypes/&lt;slug&gt;/</code> and is served at <code>/p/&lt;slug&gt;</code>.</p>
+    <p>Each prototype lives under <code>prototypes/&lt;slug&gt;/</code>. Live host: GitHub Pages; Vercel mirrors when deploy quota allows.</p>
   </footer>
-  <script src="/hub.js" type="module"></script>
+  <script src="./hub.js" type="module"></script>
 </body>
 </html>
