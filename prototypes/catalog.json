@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-07-24T19:39:35.533Z",
+  "updatedAt": "2026-07-24T19:51:17.226Z",
   "prototypes": [
+    {
+      "slug": "organicview-studio-tremellen-85c345",
+      "conceptName": "OrganicView Studio",
+      "positioning": "A lightweight analytics and content-strategy toolkit that lets video production agencies prove and replicate organic growth outcomes for B2B clients without paid spend.",
+      "companyName": "Tremellen",
+      "productName": "Video production & content strategy",
+      "publishedAt": "2026-07-24T19:51:17.226Z"
+    },
     {
       "slug": "self-hosted-qa-security-dashboard-unknown-recrui-cd05e7",
       "conceptName": "Self-Hosted QA & Security Dashboard",
