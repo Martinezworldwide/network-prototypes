@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-07-25T02:17:09.208Z",
+  "updatedAt": "2026-07-25T03:06:39.099Z",
   "prototypes": [
+    {
+      "slug": "unknown-unknown-901585",
+      "conceptName": "Unknown",
+      "positioning": "Unknown",
+      "companyName": "Unknown",
+      "productName": "Unknown",
+      "publishedAt": "2026-07-25T03:06:39.099Z"
+    },
     {
       "slug": "ai-agent-attack-surface-mapper-opsin-security-715318",
       "conceptName": "AI Agent Attack Surface Mapper",
