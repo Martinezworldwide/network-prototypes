@@ -1,0 +1,66 @@
+{
+  "slug": "ai-agent-attack-surface-mapper-opsin-security-715318",
+  "conceptName": "AI Agent Attack Surface Mapper",
+  "positioning": "Continuous discovery and ownership mapping of autonomous AI agents and their MCP server connections, closing the visibility gap left by EDR/CSPM tools that focus on traditional workloads.",
+  "coreFeatures": [
+    "Agent inventory with ownership attribution across cloud, SaaS, and on-prem",
+    "MCP server connection monitoring and risk scoring",
+    "Drift detection between approved agent registry and running instances"
+  ],
+  "differentiators": [
+    "Purpose-built for autonomous AI agents, not generic processes or containers",
+    "Maps agent-to-MCP-server relationships and data flows",
+    "LangGraph-native telemetry for agent orchestration visibility"
+  ],
+  "mvpBuildPlan": [
+    "Deploy sensorless discovery via cloud APIs and identity providers",
+    "Correlate agent identities with MCP server endpoints using OpenTelemetry",
+    "Build dashboard showing unowned agents and unauthorized MCP connections"
+  ],
+  "risks": [
+    "EDR/CSPM vendors adding agent discovery modules",
+    "Enterprise reluctance to deploy new sensors for AI workloads",
+    "MCP standard evolution breaking connection parsing"
+  ],
+  "companyName": "Opsin Security",
+  "productName": "Opsin Security AI Agent Visibility Platform",
+  "valueProposition": "Reveals the true footprint of AI agents (often 1000+), identifies who owns each agent, and maps MCP server connections — addressing an unmanaged attack surface that traditional tools miss.",
+  "publicRepositories": [
+    {
+      "name": "opsintech-platform",
+      "fullName": "OpsinTech/opsintech-platform",
+      "url": "https://github.com/OpsinTech/opsintech-platform",
+      "description": "OpsinTech Platform — An enterprise-grade AI agent platform built on LangGraph, featuring multi-tenant architecture, role-based access control, sandboxed tool execution, and an admin UI for managing models, MCP servers, skills, and tools. De",
+      "language": "Python"
+    },
+    {
+      "name": "zsh-more-completions",
+      "fullName": "MenkeTechnologies/zsh-more-completions",
+      "url": "https://github.com/MenkeTechnologies/zsh-more-completions",
+      "description": "Worlds largest collection of zsh completions",
+      "language": "Shell"
+    },
+    {
+      "name": "excel-cdk",
+      "fullName": "KevinLawson/excel-cdk",
+      "url": "https://github.com/KevinLawson/excel-cdk",
+      "description": "Enable chemical informatics functionality in MS Excel spreadsheets",
+      "language": ""
+    },
+    {
+      "name": "opsint-nuclei",
+      "fullName": "techtoona/opsint-nuclei",
+      "url": "https://github.com/techtoona/opsint-nuclei",
+      "description": "The OPSINT-Nuclei Chrome extension harnesses the power of Nuclei's Command-Line Interface (CLI) API to provide users with essential operational security (OPSEC) information directly within their web browser. Designed for cybersecurity profe",
+      "language": "JavaScript"
+    },
+    {
+      "name": "OpsIntelligence",
+      "fullName": "hridesh-net/OpsIntelligence",
+      "url": "https://github.com/hridesh-net/OpsIntelligence",
+      "description": "OpsIntelligence is a multi-agent autonomous intelligence platform for DevOps—coordinating specialized agents to monitor systems, analyze context, and execute workflows across infrastructure, repos, and delivery pipelines.",
+      "language": "Go"
+    }
+  ],
+  "publishedAt": "2026-07-25T02:10:55.700Z"
+}
