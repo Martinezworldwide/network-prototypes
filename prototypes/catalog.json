@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-07-24T21:42:09.870Z",
+  "updatedAt": "2026-07-25T02:10:55.700Z",
   "prototypes": [
+    {
+      "slug": "ai-agent-attack-surface-mapper-opsin-security-715318",
+      "conceptName": "AI Agent Attack Surface Mapper",
+      "positioning": "Continuous discovery and ownership mapping of autonomous AI agents and their MCP server connections, closing the visibility gap left by EDR/CSPM tools that focus on traditional workloads.",
+      "companyName": "Opsin Security",
+      "productName": "Opsin Security AI Agent Visibility Platform",
+      "publishedAt": "2026-07-25T02:10:55.700Z"
+    },
     {
       "slug": "public-sector-infrastructure-modernization-playb-a725bb",
       "conceptName": "Public Sector Infrastructure Modernization Playbook",
