@@ -1,0 +1,66 @@
+{
+  "slug": "competitive-installed-base-mapping-platform-unkn-c4a4b0",
+  "conceptName": "Competitive Installed-Base Mapping Platform",
+  "positioning": "Displacement-focused sales intelligence for manufacturing teams that reveals competitor contract details and refresh timing at the account level.",
+  "coreFeatures": [
+    "Account-level competitor installed-base mapping with verified contacts",
+    "Contract detail tracking including renewal dates and terms",
+    "Priority scoring to rank displacement opportunities"
+  ],
+  "differentiators": [
+    "Manufacturing-specific focus on entrenched competitor displacement",
+    "Contract-level granularity with refresh date intelligence",
+    "Priority scoring tailored for displacement selling motions"
+  ],
+  "mvpBuildPlan": [
+    "Define target manufacturing verticals and competitor set",
+    "Build data pipeline for contract and refresh date aggregation",
+    "Develop priority scoring algorithm and sales UI"
+  ],
+  "risks": [
+    "Data accuracy and freshness for contract-level details",
+    "Legal and compliance around competitive intelligence gathering",
+    "Adoption friction if not integrated into existing CRM workflows"
+  ],
+  "companyName": "Unknown",
+  "productName": "Competitive Installed-Base Mapping Platform",
+  "valueProposition": "Enables displacement selling by revealing exactly where competitors are entrenched, with contract-level detail and refresh timing, so reps can prioritize high-probability accounts.",
+  "publicRepositories": [
+    {
+      "name": "awesome",
+      "fullName": "sindresorhus/awesome",
+      "url": "https://github.com/sindresorhus/awesome",
+      "description": "😎 Awesome lists about all kinds of interesting topics",
+      "language": ""
+    },
+    {
+      "name": "public-apis",
+      "fullName": "public-apis/public-apis",
+      "url": "https://github.com/public-apis/public-apis",
+      "description": "A collective list of free APIs",
+      "language": "Python"
+    },
+    {
+      "name": "openclaw",
+      "fullName": "openclaw/openclaw",
+      "url": "https://github.com/openclaw/openclaw",
+      "description": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞",
+      "language": "TypeScript"
+    },
+    {
+      "name": "system-design-primer",
+      "fullName": "donnemartin/system-design-primer",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "description": "Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.",
+      "language": "Python"
+    },
+    {
+      "name": "awesome-selfhosted",
+      "fullName": "awesome-selfhosted/awesome-selfhosted",
+      "url": "https://github.com/awesome-selfhosted/awesome-selfhosted",
+      "description": "A list of Free Software network services and web applications which can be hosted on your own servers",
+      "language": ""
+    }
+  ],
+  "publishedAt": "2026-07-29T03:48:42.651Z"
+}
