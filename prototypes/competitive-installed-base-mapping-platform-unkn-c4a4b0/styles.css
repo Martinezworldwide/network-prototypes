@@ -136,6 +136,7 @@ ul, ol { margin: 0; padding-left: 1.1rem; color: var(--muted); line-height: 1.5;
 }
 .file-label { display: inline-flex; align-items: center; }
 .file-label input { display: none; }
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 #copy-brief:hover, .workplace-form button:hover { filter: brightness(1.05); }
 @media (max-width: 640px) {
   .hero, .grid article, .workplace-panel { border-radius: 0.85rem; }
