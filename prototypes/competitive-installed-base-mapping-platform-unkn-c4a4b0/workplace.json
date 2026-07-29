@@ -1,9 +1,33 @@
 {
   "slug": "competitive-installed-base-mapping-platform-unkn-c4a4b0",
   "conceptName": "Competitive Installed-Base Mapping Platform",
-  "updatedAt": "2026-07-29T04:19:45.496Z",
+  "updatedAt": "2026-07-29T04:31:07.445Z",
   "comments": [],
   "resources": [
+    {
+      "id": "resource-84ca242972",
+      "title": "Manufacturing Sales Displacement Playbook",
+      "url": "",
+      "note": "Internal guide mapping competitor contract refresh cycles to outreach cadences and battlecards for top 10 manufacturing verticals.",
+      "kind": "guide",
+      "addedAt": "2026-07-29T04:31:07.329Z"
+    },
+    {
+      "id": "resource-9ae0cf89bc",
+      "title": "Installed-Base Data Quality Standards",
+      "url": "",
+      "note": "Defines verification thresholds, source grading, and freshness SLAs for contract-level intelligence (renewal dates, terms, contacts).",
+      "kind": "standard",
+      "addedAt": "2026-07-29T04:31:07.329Z"
+    },
+    {
+      "id": "resource-b7eb287a41",
+      "title": "Competitive Intelligence Ethics & Compliance Brief",
+      "url": "",
+      "note": "Legal-reviewed guidelines for gathering and using competitor customer data under trade secret, privacy, and anti-scraping regulations.",
+      "kind": "doc",
+      "addedAt": "2026-07-29T04:31:07.329Z"
+    },
     {
       "id": "resource-e8323cad3f",
       "title": "Competitive Installed-Base Mapping Platform — Product Concept",
@@ -79,48 +103,57 @@
   ],
   "tools": [
     {
-      "id": "tool-9797b41f42",
-      "name": "public-apis/public-apis",
-      "category": "Data Enrichment",
-      "kind": "open-source",
-      "url": "https://github.com/public-apis/public-apis",
-      "whyRelevant": "Curated list of free APIs to supplement installed-base data with public firmographic, technographic, and contract-related signals.",
+      "id": "tool-3ae1e9a5a3",
+      "name": "ZoomInfo",
+      "category": "B2B Contact & Company Data",
+      "kind": "saas",
+      "url": "https://www.zoominfo.com/",
+      "whyRelevant": "Provides verified contact and company data essential for building accurate installed-base maps and identifying decision-makers at competitor accounts.",
       "source": "generated"
     },
     {
-      "id": "tool-94658dee9a",
-      "name": "donnemartin/system-design-primer",
-      "category": "Architecture Reference",
-      "kind": "open-source",
-      "url": "https://github.com/donnemartin/system-design-primer",
-      "whyRelevant": "System design patterns for building scalable data pipelines and priority scoring services for competitor mapping.",
+      "id": "tool-acd361365e",
+      "name": "Apollo.io",
+      "category": "Sales Intelligence & Engagement",
+      "kind": "saas",
+      "url": "https://www.apollo.io/",
+      "whyRelevant": "Combines contact database with sales engagement tools, enabling reps to act on installed-base insights with sequenced outreach to displacement targets.",
       "source": "generated"
     },
     {
-      "id": "tool-f3a164dbbe",
-      "name": "openclaw/openclaw",
-      "category": "AI Research Assistant",
-      "kind": "open-source",
-      "url": "https://github.com/openclaw/openclaw",
-      "whyRelevant": "Personal AI assistant framework that can be adapted for automated competitive intelligence gathering and research workflows.",
+      "id": "tool-42040182f8",
+      "name": "HG Insights",
+      "category": "Technology Intelligence",
+      "kind": "saas",
+      "url": "https://www.hginsights.com/",
+      "whyRelevant": "Specializes in technographic data and IT spend intelligence, critical for mapping competitor technology footprints in manufacturing accounts.",
       "source": "generated"
     },
     {
-      "id": "tool-b6e1aa6fb9",
-      "name": "awesome-selfhosted/awesome-selfhosted",
-      "category": "Self-hosted Services",
-      "kind": "open-source",
-      "url": "https://github.com/awesome-selfhosted/awesome-selfhosted",
-      "whyRelevant": "Catalog of self-hosted tools for data processing, monitoring, and internal dashboards to support the mapping platform.",
+      "id": "tool-3a5d135016",
+      "name": "Salesforce Sales Cloud",
+      "category": "CRM",
+      "kind": "saas",
+      "url": "https://www.salesforce.com/products/sales-cloud/overview/",
+      "whyRelevant": "Core CRM for manufacturing sales teams; integration point for surfacing installed-base insights directly into rep workflows and opportunity records.",
       "source": "generated"
     },
     {
-      "id": "tool-ae880c54e6",
-      "name": "sindresorhus/awesome",
-      "category": "Curated Lists",
-      "kind": "open-source",
-      "url": "https://github.com/sindresorhus/awesome",
-      "whyRelevant": "Meta-list of awesome resources across domains; useful for discovering niche libraries, data sources, and dev tools relevant to manufacturing sales intelligence.",
+      "id": "tool-9f05570cb9",
+      "name": "Gong.io",
+      "category": "Revenue Intelligence",
+      "kind": "saas",
+      "url": "https://www.gong.io/",
+      "whyRelevant": "Captures and analyzes sales conversations to validate displacement messaging effectiveness and track competitive mentions in deals.",
+      "source": "generated"
+    },
+    {
+      "id": "tool-ac2754e822",
+      "name": "Clearbit",
+      "category": "Data Enrichment API",
+      "kind": "platform",
+      "url": "https://clearbit.com/",
+      "whyRelevant": "Real-time company and contact enrichment API to keep installed-base records current and automate CRM data hygiene for manufacturing accounts.",
       "source": "generated"
     }
   ]
