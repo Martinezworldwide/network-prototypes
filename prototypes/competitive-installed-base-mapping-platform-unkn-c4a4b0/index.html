@@ -24,6 +24,7 @@
         <a href="#tools">Tools</a>
         <a href="#resources">Resources</a>
         <a href="#comments">Comments</a>
+        <a href="#footprint">Open source</a>
       </nav>
     </section>
 
@@ -48,37 +49,39 @@
 
     <section id="tools" class="workplace-panel">
       <div class="panel-head">
-        <h2>Relevant tools &amp; software</h2>
-        <p class="muted">Extension of open-source discovery: libraries, CLIs, SaaS, and related software for this build.</p>
+        <h2>Industry tools &amp; software</h2>
+        <p class="muted">Industry-relevant SaaS, platforms, CLIs, and software for this vertical. Separate from the company open-source footprint below.</p>
       </div>
       <div id="tools-list" class="card-list" aria-live="polite"></div>
       <form id="tool-form" class="workplace-form">
-        <h3>Add a tool</h3>
-        <label>Name <input name="name" maxlength="120" required placeholder="e.g. OpenTelemetry Collector"></label>
-        <label>Category <input name="category" maxlength="80" placeholder="observability, security, framework"></label>
+        <h3>Add an industry tool</h3>
+        <label class="honeypot" aria-hidden="true">Leave blank <input name="website" tabindex="-1" autocomplete="off"></label>
+        <label>Name <input name="name" maxlength="120" required placeholder="e.g. HubSpot, Salesforce, dbt"></label>
+        <label>Category <input name="category" maxlength="80" placeholder="crm, analytics, manufacturing, security"></label>
         <label>Kind
           <select name="kind">
-            <option value="open-source">Open source</option>
-            <option value="software">Software</option>
             <option value="saas">SaaS</option>
+            <option value="software">Software</option>
+            <option value="platform">Platform</option>
             <option value="library">Library</option>
             <option value="cli">CLI</option>
           </select>
         </label>
         <label>HTTPS URL <input name="url" type="url" placeholder="https://"></label>
-        <label>Why relevant <textarea name="whyRelevant" maxlength="280" rows="2" placeholder="How this helps the prototype"></textarea></label>
-        <button type="submit">Save tool to workplace JSON</button>
+        <label>Why relevant <textarea name="whyRelevant" maxlength="280" rows="2" placeholder="Why this industry tool matters here"></textarea></label>
+        <button type="submit">Save tool to GitHub workplace.json</button>
       </form>
     </section>
 
     <section id="resources" class="workplace-panel">
       <div class="panel-head">
         <h2>Important shared resources</h2>
-        <p class="muted">Docs, decks, demos, and links collaborators should keep together.</p>
+        <p class="muted">Docs, decks, demos, and links collaborators should keep together. Saved into workplace.json on GitHub.</p>
       </div>
       <div id="resources-list" class="card-list" aria-live="polite"></div>
       <form id="resource-form" class="workplace-form">
         <h3>Share a resource</h3>
+        <label class="honeypot" aria-hidden="true">Leave blank <input name="website" tabindex="-1" autocomplete="off"></label>
         <label>Title <input name="title" maxlength="160" required placeholder="Architecture notes"></label>
         <label>HTTPS URL <input name="url" type="url" placeholder="https://"></label>
         <label>Kind
@@ -88,17 +91,19 @@
             <option value="deck">Deck</option>
             <option value="video">Video</option>
             <option value="demo">Demo</option>
-            <option value="repo">Repo</option>
             <option value="note">Note</option>
+            <option value="standard">Standard</option>
+            <option value="guide">Guide</option>
           </select>
         </label>
         <label>Note <textarea name="note" maxlength="400" rows="2" placeholder="Why this matters"></textarea></label>
-        <button type="submit">Save resource to workplace JSON</button>
+        <button type="submit">Save resource to GitHub workplace.json</button>
       </form>
     </section>
 
-    <section class="open-source workplace-panel">
-      <h2>Public technical footprint</h2>
+    <section id="footprint" class="open-source workplace-panel">
+      <h2>Company public open-source footprint</h2>
+      <p class="muted">Part 2B discovery for this company. Not the same as industry workplace tools above.</p>
       <div class="repo-list">
     <article class="repo">
       <h3><a href="https://github.com/sindresorhus/awesome" target="_blank" rel="noreferrer">sindresorhus/awesome</a></h3>
@@ -135,24 +140,25 @@
     <section id="comments" class="workplace-panel">
       <div class="panel-head">
         <h2>Workplace comments</h2>
-        <p class="muted">Threaded notes for async collaboration. Stored in <code>workplace.json</code>.</p>
+        <p class="muted">Async notes. Each post writes into <code>workplace.json</code> in the public GitHub repo.</p>
       </div>
       <div id="comments-list" class="comment-list" aria-live="polite"></div>
       <form id="comment-form" class="workplace-form">
         <h3>Add a comment</h3>
+        <label class="honeypot" aria-hidden="true">Leave blank <input name="website" tabindex="-1" autocomplete="off"></label>
         <label>Name <input name="author" maxlength="80" required placeholder="Your name"></label>
         <label>Comment <textarea name="body" maxlength="2000" rows="4" required placeholder="Share feedback, blockers, or next steps"></textarea></label>
-        <button type="submit">Post comment</button>
+        <button type="submit">Post comment to GitHub workplace.json</button>
       </form>
     </section>
 
     <section class="cta workplace-panel">
       <h2>Workplace JSON storage</h2>
-      <p>This desk uses simple JSON: <code>prototype.json</code> for the brief and <code>workplace.json</code> for comments, resources, and tools. Browser edits save locally and can be exported for sharing or republishing.</p>
+      <p>Source of truth: <code>prototypes/competitive-installed-base-mapping-platform-unkn-c4a4b0/workplace.json</code> in the public network-prototypes GitHub repo. Comments, resources, and tools append there directly — no database.</p>
       <div class="cta-actions">
         <button id="copy-brief" type="button">Copy partnership brief</button>
         <button id="export-workplace" type="button" class="secondary">Download workplace.json</button>
-        <label class="file-label secondary">Import workplace.json <input id="import-workplace" type="file" accept="application/json,.json"></label>
+        <button id="reload-workplace" type="button" class="secondary">Reload from GitHub</button>
       </div>
       <p id="copy-status" class="muted" aria-live="polite"></p>
     </section>
