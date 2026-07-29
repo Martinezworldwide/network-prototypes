@@ -1,4 +1,5 @@
-// Client helpers for the public prototype page. No private CRM data is loaded here.
+// Client workplace helpers. No private CRM data is loaded here.
+// Storage model: seed from workplace.json, merge browser edits in localStorage, export/import JSON.
 const brief = {
   "conceptName": "Competitive Installed-Base Mapping Platform",
   "positioning": "Displacement-focused sales intelligence for manufacturing teams that reveals competitor contract details and refresh timing at the account level.",
@@ -13,13 +14,153 @@ const brief = {
     "Define target manufacturing verticals and competitor set",
     "Build data pipeline for contract and refresh date aggregation",
     "Develop priority scoring algorithm and sales UI"
-  ]
+  ],
+  "slug": "competitive-installed-base-mapping-platform-unkn-c4a4b0"
 };
 
-const button = document.querySelector("#copy-brief");
+const STORAGE_KEY = `lia-workplace-${brief.slug}`;
 const status = document.querySelector("#copy-status");
+let workplace = {
+  slug: brief.slug,
+  conceptName: brief.conceptName,
+  updatedAt: new Date().toISOString(),
+  comments: [],
+  resources: [],
+  tools: []
+};
 
-button?.addEventListener("click", async () => {
+function setStatus(message) {
+  if (status) status.textContent = message;
+}
+
+function safeHttps(value) {
+  try {
+    const url = new URL(String(value || ""));
+    return url.protocol === "https:" ? url.href : "";
+  } catch {
+    return "";
+  }
+}
+
+function escapeText(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function loadLocal() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveLocal() {
+  workplace.updatedAt = new Date().toISOString();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(workplace));
+}
+
+function mergeWorkplace(base, overlay) {
+  if (!overlay || typeof overlay !== "object") return base;
+  const byId = (items = []) => {
+    const map = new Map();
+    for (const item of items) {
+      if (!item) continue;
+      const key = item.id || item.url || item.title || item.body;
+      if (key) map.set(String(key), item);
+    }
+    return map;
+  };
+  const comments = byId([...(base.comments || []), ...(overlay.comments || [])]);
+  const resources = byId([...(base.resources || []), ...(overlay.resources || [])]);
+  const tools = byId([...(base.tools || []), ...(overlay.tools || [])]);
+  return {
+    slug: base.slug || overlay.slug || brief.slug,
+    conceptName: base.conceptName || overlay.conceptName || brief.conceptName,
+    updatedAt: overlay.updatedAt || base.updatedAt || new Date().toISOString(),
+    comments: [...comments.values()],
+    resources: [...resources.values()],
+    tools: [...tools.values()]
+  };
+}
+
+function renderTools() {
+  const root = document.querySelector("#tools-list");
+  if (!root) return;
+  const tools = workplace.tools || [];
+  if (!tools.length) {
+    root.innerHTML = "<p class=\"muted\">No tools yet. Add software, libraries, or open-source projects relevant to this workplace.</p>";
+    return;
+  }
+  root.innerHTML = tools.map((tool) => `
+    <article class="work-card">
+      <h3>${tool.url ? `<a href="${escapeText(tool.url)}" target="_blank" rel="noreferrer">${escapeText(tool.name)}</a>` : escapeText(tool.name)}</h3>
+      <p>${escapeText(tool.whyRelevant || "Relevant tool for this prototype.")}</p>
+      <p class="chip">${escapeText(tool.kind || "software")} · ${escapeText(tool.category || "general")} · ${escapeText(tool.source || "shared")}</p>
+    </article>
+  `).join("");
+}
+
+function renderResources() {
+  const root = document.querySelector("#resources-list");
+  if (!root) return;
+  const resources = workplace.resources || [];
+  if (!resources.length) {
+    root.innerHTML = "<p class=\"muted\">No shared resources yet. Add docs, decks, demos, or notes the team should keep.</p>";
+    return;
+  }
+  root.innerHTML = resources.map((resource) => `
+    <article class="work-card">
+      <h3>${resource.url ? `<a href="${escapeText(resource.url)}" target="_blank" rel="noreferrer">${escapeText(resource.title)}</a>` : escapeText(resource.title)}</h3>
+      <p>${escapeText(resource.note || "")}</p>
+      <p class="chip">${escapeText(resource.kind || "link")}</p>
+    </article>
+  `).join("");
+}
+
+function renderComments() {
+  const root = document.querySelector("#comments-list");
+  if (!root) return;
+  const comments = [...(workplace.comments || [])].sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
+  if (!comments.length) {
+    root.innerHTML = "<p class=\"muted\">No comments yet. Start the async thread for this workplace.</p>";
+    return;
+  }
+  root.innerHTML = comments.map((comment) => `
+    <article class="comment-card">
+      <h3>${escapeText(comment.author || "Collaborator")}</h3>
+      <p>${escapeText(comment.body)}</p>
+      <p class="comment-meta">${escapeText(comment.createdAt ? new Date(comment.createdAt).toLocaleString() : "")}</p>
+    </article>
+  `).join("");
+}
+
+function renderAll() {
+  renderTools();
+  renderResources();
+  renderComments();
+}
+
+async function boot() {
+  try {
+    const response = await fetch("./workplace.json", { cache: "no-store" });
+    if (response.ok) {
+      const remote = await response.json();
+      workplace = mergeWorkplace(remote, loadLocal());
+    } else {
+      workplace = mergeWorkplace(workplace, loadLocal());
+    }
+  } catch {
+    workplace = mergeWorkplace(workplace, loadLocal());
+  }
+  renderAll();
+}
+
+document.querySelector("#copy-brief")?.addEventListener("click", async () => {
   const text = [
     `Prototype: ${brief.conceptName}`,
     brief.companyName || brief.productName ? `Context: ${[brief.companyName, brief.productName].filter(Boolean).join(" / ")}` : "",
@@ -30,8 +171,105 @@ button?.addEventListener("click", async () => {
   ].filter(Boolean).join("\n");
   try {
     await navigator.clipboard.writeText(text);
-    status.textContent = "Partnership brief copied.";
+    setStatus("Partnership brief copied.");
   } catch {
-    status.textContent = "Could not copy automatically. Select and copy from the page.";
+    setStatus("Could not copy automatically. Select and copy from the page.");
   }
 });
+
+document.querySelector("#export-workplace")?.addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(workplace, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "workplace.json";
+  link.click();
+  URL.revokeObjectURL(url);
+  setStatus("Downloaded workplace.json.");
+});
+
+document.querySelector("#import-workplace")?.addEventListener("change", async (event) => {
+  const file = event.target.files?.[0];
+  if (!file) return;
+  try {
+    const parsed = JSON.parse(await file.text());
+    workplace = mergeWorkplace(workplace, parsed);
+    saveLocal();
+    renderAll();
+    setStatus("Imported workplace.json into local storage.");
+  } catch {
+    setStatus("Could not import that JSON file.");
+  }
+  event.target.value = "";
+});
+
+document.querySelector("#comment-form")?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const author = String(form.author.value || "").trim().slice(0, 80);
+  const body = String(form.body.value || "").trim().slice(0, 2000);
+  if (!author || !body) return;
+  workplace.comments = [...(workplace.comments || []), {
+    id: `comment-${Date.now()}`,
+    author,
+    body,
+    createdAt: new Date().toISOString()
+  }];
+  saveLocal();
+  renderComments();
+  form.reset();
+  setStatus("Comment saved to local workplace.json storage.");
+});
+
+document.querySelector("#resource-form")?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const title = String(form.title.value || "").trim().slice(0, 160);
+  const url = safeHttps(form.url.value);
+  const note = String(form.note.value || "").trim().slice(0, 400);
+  const kind = String(form.kind.value || "link");
+  if (!title) return;
+  if (form.url.value && !url) {
+    setStatus("Resource URL must be https.");
+    return;
+  }
+  workplace.resources = [...(workplace.resources || []), {
+    id: `resource-${Date.now()}`,
+    title,
+    url,
+    note,
+    kind,
+    addedAt: new Date().toISOString()
+  }];
+  saveLocal();
+  renderResources();
+  form.reset();
+  setStatus("Resource saved to local workplace.json storage.");
+});
+
+document.querySelector("#tool-form")?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const name = String(form.name.value || "").trim().slice(0, 120);
+  const url = safeHttps(form.url.value);
+  if (!name) return;
+  if (form.url.value && !url) {
+    setStatus("Tool URL must be https.");
+    return;
+  }
+  workplace.tools = [...(workplace.tools || []), {
+    id: `tool-${Date.now()}`,
+    name,
+    category: String(form.category.value || "general").trim().slice(0, 80) || "general",
+    kind: String(form.kind.value || "software"),
+    url,
+    whyRelevant: String(form.whyRelevant.value || "").trim().slice(0, 280),
+    source: "shared"
+  }];
+  saveLocal();
+  renderTools();
+  form.reset();
+  setStatus("Tool saved to local workplace.json storage.");
+});
+
+boot();
