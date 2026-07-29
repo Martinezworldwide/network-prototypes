@@ -1,0 +1,127 @@
+{
+  "slug": "competitive-installed-base-mapping-platform-unkn-c4a4b0",
+  "conceptName": "Competitive Installed-Base Mapping Platform",
+  "updatedAt": "2026-07-29T04:19:45.496Z",
+  "comments": [],
+  "resources": [
+    {
+      "id": "resource-e8323cad3f",
+      "title": "Competitive Installed-Base Mapping Platform — Product Concept",
+      "url": "",
+      "note": "One-page concept doc describing displacement-focused sales intelligence for manufacturing: account-level competitor mapping, contract details, refresh dates, priority scoring.",
+      "kind": "doc",
+      "addedAt": "2026-07-29T04:19:45.420Z"
+    },
+    {
+      "id": "resource-8fcb8287b2",
+      "title": "MVP Build Plan Outline",
+      "url": "",
+      "note": "Phased plan: define target verticals/competitor set → build data pipeline for contract/refresh aggregation → develop priority scoring algorithm and sales UI.",
+      "kind": "doc",
+      "addedAt": "2026-07-29T04:19:45.420Z"
+    },
+    {
+      "id": "resource-2a388afb34",
+      "title": "Key Risks & Mitigations",
+      "url": "",
+      "note": "Data accuracy/freshness, legal/compliance for competitive intelligence, CRM integration adoption friction.",
+      "kind": "note",
+      "addedAt": "2026-07-29T04:19:45.420Z"
+    },
+    {
+      "id": "resource-94d6818385",
+      "title": "Integration Ideas from Open-Source Survey",
+      "url": "",
+      "note": "Use public APIs for enrichment, apply system-design patterns for scalability, explore AI-assisted research workflows for automated intel gathering.",
+      "kind": "note",
+      "addedAt": "2026-07-29T04:19:45.421Z"
+    },
+    {
+      "id": "resource-aac597fc68",
+      "title": "sindresorhus/awesome",
+      "url": "https://github.com/sindresorhus/awesome",
+      "note": "😎 Awesome lists about all kinds of interesting topics",
+      "kind": "repo",
+      "addedAt": "2026-07-29T04:19:45.421Z"
+    },
+    {
+      "id": "resource-415cb25759",
+      "title": "public-apis/public-apis",
+      "url": "https://github.com/public-apis/public-apis",
+      "note": "A collective list of free APIs",
+      "kind": "repo",
+      "addedAt": "2026-07-29T04:19:45.421Z"
+    },
+    {
+      "id": "resource-0b5c4741d1",
+      "title": "openclaw/openclaw",
+      "url": "https://github.com/openclaw/openclaw",
+      "note": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞",
+      "kind": "repo",
+      "addedAt": "2026-07-29T04:19:45.421Z"
+    },
+    {
+      "id": "resource-789bde9df7",
+      "title": "donnemartin/system-design-primer",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "note": "Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.",
+      "kind": "repo",
+      "addedAt": "2026-07-29T04:19:45.421Z"
+    },
+    {
+      "id": "resource-afac539bd2",
+      "title": "awesome-selfhosted/awesome-selfhosted",
+      "url": "https://github.com/awesome-selfhosted/awesome-selfhosted",
+      "note": "A list of Free Software network services and web applications which can be hosted on your own servers",
+      "kind": "repo",
+      "addedAt": "2026-07-29T04:19:45.421Z"
+    }
+  ],
+  "tools": [
+    {
+      "id": "tool-9797b41f42",
+      "name": "public-apis/public-apis",
+      "category": "Data Enrichment",
+      "kind": "open-source",
+      "url": "https://github.com/public-apis/public-apis",
+      "whyRelevant": "Curated list of free APIs to supplement installed-base data with public firmographic, technographic, and contract-related signals.",
+      "source": "generated"
+    },
+    {
+      "id": "tool-94658dee9a",
+      "name": "donnemartin/system-design-primer",
+      "category": "Architecture Reference",
+      "kind": "open-source",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "whyRelevant": "System design patterns for building scalable data pipelines and priority scoring services for competitor mapping.",
+      "source": "generated"
+    },
+    {
+      "id": "tool-f3a164dbbe",
+      "name": "openclaw/openclaw",
+      "category": "AI Research Assistant",
+      "kind": "open-source",
+      "url": "https://github.com/openclaw/openclaw",
+      "whyRelevant": "Personal AI assistant framework that can be adapted for automated competitive intelligence gathering and research workflows.",
+      "source": "generated"
+    },
+    {
+      "id": "tool-b6e1aa6fb9",
+      "name": "awesome-selfhosted/awesome-selfhosted",
+      "category": "Self-hosted Services",
+      "kind": "open-source",
+      "url": "https://github.com/awesome-selfhosted/awesome-selfhosted",
+      "whyRelevant": "Catalog of self-hosted tools for data processing, monitoring, and internal dashboards to support the mapping platform.",
+      "source": "generated"
+    },
+    {
+      "id": "tool-ae880c54e6",
+      "name": "sindresorhus/awesome",
+      "category": "Curated Lists",
+      "kind": "open-source",
+      "url": "https://github.com/sindresorhus/awesome",
+      "whyRelevant": "Meta-list of awesome resources across domains; useful for discovering niche libraries, data sources, and dev tools relevant to manufacturing sales intelligence.",
+      "source": "generated"
+    }
+  ]
+}
