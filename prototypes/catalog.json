@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-07-25T03:18:47.869Z",
+  "updatedAt": "2026-07-29T03:48:42.651Z",
   "prototypes": [
+    {
+      "slug": "competitive-installed-base-mapping-platform-unkn-c4a4b0",
+      "conceptName": "Competitive Installed-Base Mapping Platform",
+      "positioning": "Displacement-focused sales intelligence for manufacturing teams that reveals competitor contract details and refresh timing at the account level.",
+      "companyName": "Unknown",
+      "productName": "Competitive Installed-Base Mapping Platform",
+      "publishedAt": "2026-07-29T03:48:42.651Z"
+    },
     {
       "slug": "unknown-unknown-901585",
       "conceptName": "Unknown",
