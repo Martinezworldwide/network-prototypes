@@ -1,5 +1,5 @@
 // Client workplace helpers. No private CRM data is loaded here.
-// Storage model: seed from workplace.json, merge browser edits in localStorage, export/import JSON.
+// Storage: load workplace.json from the public repo; appends write back into that same GitHub JSON file.
 const brief = {
   "conceptName": "Competitive Installed-Base Mapping Platform",
   "positioning": "Displacement-focused sales intelligence for manufacturing teams that reveals competitor contract details and refresh timing at the account level.",
@@ -18,7 +18,7 @@ const brief = {
   "slug": "competitive-installed-base-mapping-platform-unkn-c4a4b0"
 };
 
-const STORAGE_KEY = `lia-workplace-${brief.slug}`;
+const WORKPLACE_API = "https://linkedin-messages-responses.vercel.app/api/workplace";
 const status = document.querySelector("#copy-status");
 let workplace = {
   slug: brief.slug,
@@ -28,6 +28,7 @@ let workplace = {
   resources: [],
   tools: []
 };
+let saving = false;
 
 function setStatus(message) {
   if (status) status.textContent = message;
@@ -50,42 +51,45 @@ function escapeText(value) {
     .replace(/"/g, "&quot;");
 }
 
-function loadLocal() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
-  } catch {
-    return null;
+function honeypotFilled(form) {
+  return Boolean(String(form.website?.value || "").trim());
+}
+
+async function loadRemoteWorkplace() {
+  const response = await fetch(`./workplace.json?ts=${Date.now()}`, { cache: "no-store" });
+  if (!response.ok) throw new Error(`workplace.json unavailable (${response.status})`);
+  return response.json();
+}
+
+async function persistAppend(patch) {
+  if (saving) {
+    setStatus("Another save is already in progress.");
+    return false;
   }
-}
-
-function saveLocal() {
-  workplace.updatedAt = new Date().toISOString();
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(workplace));
-}
-
-function mergeWorkplace(base, overlay) {
-  if (!overlay || typeof overlay !== "object") return base;
-  const byId = (items = []) => {
-    const map = new Map();
-    for (const item of items) {
-      if (!item) continue;
-      const key = item.id || item.url || item.title || item.body;
-      if (key) map.set(String(key), item);
-    }
-    return map;
-  };
-  const comments = byId([...(base.comments || []), ...(overlay.comments || [])]);
-  const resources = byId([...(base.resources || []), ...(overlay.resources || [])]);
-  const tools = byId([...(base.tools || []), ...(overlay.tools || [])]);
-  return {
-    slug: base.slug || overlay.slug || brief.slug,
-    conceptName: base.conceptName || overlay.conceptName || brief.conceptName,
-    updatedAt: overlay.updatedAt || base.updatedAt || new Date().toISOString(),
-    comments: [...comments.values()],
-    resources: [...resources.values()],
-    tools: [...tools.values()]
-  };
+  saving = true;
+  setStatus("Saving to GitHub workplace.json...");
+  try {
+    const response = await fetch(WORKPLACE_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        slug: brief.slug,
+        conceptName: brief.conceptName,
+        ...patch
+      })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.error || `Save failed (${response.status})`);
+    workplace = data.workplace || await loadRemoteWorkplace();
+    renderAll();
+    setStatus("Saved to GitHub workplace.json.");
+    return true;
+  } catch (error) {
+    setStatus(error instanceof Error ? error.message : "Could not save to GitHub workplace.json.");
+    return false;
+  } finally {
+    saving = false;
+  }
 }
 
 function renderTools() {
@@ -93,13 +97,13 @@ function renderTools() {
   if (!root) return;
   const tools = workplace.tools || [];
   if (!tools.length) {
-    root.innerHTML = "<p class=\"muted\">No tools yet. Add software, libraries, or open-source projects relevant to this workplace.</p>";
+    root.innerHTML = "<p class=\"muted\">No industry tools yet. Add SaaS, platforms, or software used in this vertical.</p>";
     return;
   }
   root.innerHTML = tools.map((tool) => `
     <article class="work-card">
       <h3>${tool.url ? `<a href="${escapeText(tool.url)}" target="_blank" rel="noreferrer">${escapeText(tool.name)}</a>` : escapeText(tool.name)}</h3>
-      <p>${escapeText(tool.whyRelevant || "Relevant tool for this prototype.")}</p>
+      <p>${escapeText(tool.whyRelevant || "Industry-relevant tool for this workplace.")}</p>
       <p class="chip">${escapeText(tool.kind || "software")} · ${escapeText(tool.category || "general")} · ${escapeText(tool.source || "shared")}</p>
     </article>
   `).join("");
@@ -147,17 +151,13 @@ function renderAll() {
 
 async function boot() {
   try {
-    const response = await fetch("./workplace.json", { cache: "no-store" });
-    if (response.ok) {
-      const remote = await response.json();
-      workplace = mergeWorkplace(remote, loadLocal());
-    } else {
-      workplace = mergeWorkplace(workplace, loadLocal());
-    }
-  } catch {
-    workplace = mergeWorkplace(workplace, loadLocal());
+    workplace = await loadRemoteWorkplace();
+    renderAll();
+    setStatus("Loaded workplace.json from GitHub.");
+  } catch (error) {
+    renderAll();
+    setStatus(error instanceof Error ? error.message : "Could not load workplace.json.");
   }
-  renderAll();
 }
 
 document.querySelector("#copy-brief")?.addEventListener("click", async () => {
@@ -188,42 +188,38 @@ document.querySelector("#export-workplace")?.addEventListener("click", () => {
   setStatus("Downloaded workplace.json.");
 });
 
-document.querySelector("#import-workplace")?.addEventListener("change", async (event) => {
-  const file = event.target.files?.[0];
-  if (!file) return;
+document.querySelector("#reload-workplace")?.addEventListener("click", async () => {
   try {
-    const parsed = JSON.parse(await file.text());
-    workplace = mergeWorkplace(workplace, parsed);
-    saveLocal();
+    workplace = await loadRemoteWorkplace();
     renderAll();
-    setStatus("Imported workplace.json into local storage.");
-  } catch {
-    setStatus("Could not import that JSON file.");
+    setStatus("Reloaded workplace.json from GitHub.");
+  } catch (error) {
+    setStatus(error instanceof Error ? error.message : "Could not reload workplace.json.");
   }
-  event.target.value = "";
 });
 
-document.querySelector("#comment-form")?.addEventListener("submit", (event) => {
+document.querySelector("#comment-form")?.addEventListener("submit", async (event) => {
   event.preventDefault();
   const form = event.currentTarget;
+  if (honeypotFilled(form)) return;
   const author = String(form.author.value || "").trim().slice(0, 80);
   const body = String(form.body.value || "").trim().slice(0, 2000);
   if (!author || !body) return;
-  workplace.comments = [...(workplace.comments || []), {
-    id: `comment-${Date.now()}`,
-    author,
-    body,
-    createdAt: new Date().toISOString()
-  }];
-  saveLocal();
-  renderComments();
-  form.reset();
-  setStatus("Comment saved to local workplace.json storage.");
+  const ok = await persistAppend({
+    appendComment: {
+      id: `comment-${Date.now()}`,
+      author,
+      body,
+      createdAt: new Date().toISOString()
+    }
+  });
+  if (ok) form.reset();
 });
 
-document.querySelector("#resource-form")?.addEventListener("submit", (event) => {
+document.querySelector("#resource-form")?.addEventListener("submit", async (event) => {
   event.preventDefault();
   const form = event.currentTarget;
+  if (honeypotFilled(form)) return;
   const title = String(form.title.value || "").trim().slice(0, 160);
   const url = safeHttps(form.url.value);
   const note = String(form.note.value || "").trim().slice(0, 400);
@@ -233,23 +229,23 @@ document.querySelector("#resource-form")?.addEventListener("submit", (event) => 
     setStatus("Resource URL must be https.");
     return;
   }
-  workplace.resources = [...(workplace.resources || []), {
-    id: `resource-${Date.now()}`,
-    title,
-    url,
-    note,
-    kind,
-    addedAt: new Date().toISOString()
-  }];
-  saveLocal();
-  renderResources();
-  form.reset();
-  setStatus("Resource saved to local workplace.json storage.");
+  const ok = await persistAppend({
+    appendResource: {
+      id: `resource-${Date.now()}`,
+      title,
+      url,
+      note,
+      kind,
+      addedAt: new Date().toISOString()
+    }
+  });
+  if (ok) form.reset();
 });
 
-document.querySelector("#tool-form")?.addEventListener("submit", (event) => {
+document.querySelector("#tool-form")?.addEventListener("submit", async (event) => {
   event.preventDefault();
   const form = event.currentTarget;
+  if (honeypotFilled(form)) return;
   const name = String(form.name.value || "").trim().slice(0, 120);
   const url = safeHttps(form.url.value);
   if (!name) return;
@@ -257,19 +253,18 @@ document.querySelector("#tool-form")?.addEventListener("submit", (event) => {
     setStatus("Tool URL must be https.");
     return;
   }
-  workplace.tools = [...(workplace.tools || []), {
-    id: `tool-${Date.now()}`,
-    name,
-    category: String(form.category.value || "general").trim().slice(0, 80) || "general",
-    kind: String(form.kind.value || "software"),
-    url,
-    whyRelevant: String(form.whyRelevant.value || "").trim().slice(0, 280),
-    source: "shared"
-  }];
-  saveLocal();
-  renderTools();
-  form.reset();
-  setStatus("Tool saved to local workplace.json storage.");
+  const ok = await persistAppend({
+    appendTool: {
+      id: `tool-${Date.now()}`,
+      name,
+      category: String(form.category.value || "general").trim().slice(0, 80) || "general",
+      kind: String(form.kind.value || "software"),
+      url,
+      whyRelevant: String(form.whyRelevant.value || "").trim().slice(0, 280),
+      source: "shared"
+    }
+  });
+  if (ok) form.reset();
 });
 
 boot();
